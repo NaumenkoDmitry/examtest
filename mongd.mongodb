@@ -1,0 +1,16 @@
+use('shm-chat');
+// подсчет сколько повторений в чатах слова  
+db.messages.aggregate([
+
+  {  
+    $match: {
+      body: /паровоз/
+    },
+  },
+  {
+    $group: {
+      _id: 'repetitions',
+      count: { $sum: 1 }
+    }
+  }
+])

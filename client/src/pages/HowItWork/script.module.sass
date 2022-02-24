@@ -1,0 +1,457 @@
+$mainFontFamily: "Poppins",Helvetica,Arial,sans-serif
+$mainTextClr: #1e2022
+$infoTextClr: #77838f
+$AccentClr: #377dff
+$secAccentClr: #fff
+$getStartAccentClr: #28D2D0
+$borderClr: #e7eaf3
+$bgAccentClr: rgba(55,125,255,.1)
+$bgVideoClr: #000000d5
+
+
+@mixin pre_title
+   color: $AccentClr
+   padding: 7px 15px
+   font-size: 11px
+   background: $bgAccentClr
+   text-align: center
+   border-radius: 6.1875rem
+   margin: 8px 0
+   box-sizing: border-box
+   cursor: default 
+
+@mixin icon_container
+   width: 72px
+   height: 72px
+   overflow: hidden
+
+@mixin image
+   width: inherit
+   height: inherit
+   object-fit: cover
+
+.wrapper
+ display: flex
+ flex-direction: column
+ align-items: center
+ margin: 0 auto
+ font-family: $mainFontFamily
+ font-size: 1rem
+ font-weight: 400
+ line-height: 1.5
+ color: $mainTextClr
+ position: relative
+ overflow: hidden
+
+ .closing_video
+    display: block
+    position: absolute
+    opacity: 0
+    visibility: hidden
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    background-color: $bgVideoClr
+    margin: 0
+    padding: 0
+    overflow: hidden
+    box-sizing: border-box
+    z-index: 1000
+    transition: opacity 0.7s preserve-3d
+
+  
+ .showing_video
+    display: flex
+    justify-content: center
+    align-items: center
+    position: fixed
+    opacity: 1
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: $bgVideoClr
+    margin: 0
+    padding: 0
+    overflow: hidden
+    box-sizing: border-box
+    z-index: 1000
+    transition: opacity 0.07s preserve-3d
+
+    .video_frame
+      position: relative
+
+    .close_btn
+      position: absolute
+      color: $borderClr
+      font-size: 20px
+      left: 95%
+      top: 10%
+      cursor: pointer
+      width: 50px
+      text-align: center
+      box-sizing: border-box
+      @media(max-width: 1200px)
+        top: 10%
+        left: 90%
+      @media(max-width: 480px)
+        top: 20%
+        left: 85%
+
+      &:hover
+        background-color: $mainTextClr
+        color: $secAccentClr
+
+
+ .how_sq_work_container
+  display: flex
+  max-width: 1140px
+  margin: 80px 0 32px 0
+  justify-content: center
+
+  .how_sq_work_container__info
+    display: flex
+    flex-direction: column
+    padding: 0 15px
+    box-sizing: border-box
+    width: 65%
+    @media(max-width: 991px)
+      width: 90%
+
+    .info_accent
+      @include pre-title
+      width: 30%
+      white-space: nowrap
+      @media(max-width: 768px)
+        width: 40%
+      @media(max-width: 576px)
+        width: 50%
+      @media(max-width: 480px)
+        width: 65%
+      @media(max-width: 480px)
+        width: 80%
+    
+    h3
+      margin-bottom: 8px
+      font-size: 2.5rem
+      font-weight: 600
+    
+    p
+      color: $infoTextClr
+      line-height: 1.7
+      margin-bottom: 16px
+    
+    div
+      box-sizing: border-box
+      background-color: $AccentClr
+      border-radius: 6.1875rem
+      color: $secAccentClr
+      width: 155px
+      padding: 12px 16px
+      cursor: pointer
+      transition: all 0.2s ease-in-out
+      text-align: center
+      @media(max-width: 480px)
+        width: 100%
+     
+      &:hover
+       transform: translateY(-3px)
+       box-shadow: 0 4px 11px rgba(55, 125, 255, 0.5)
+
+      i
+       margin-right: 0.5rem
+  
+  .how_sq_work_container__img
+    width: 35%
+    object-fit: cover
+    @media(max-width: 991px)
+      display: none
+
+    img
+      width: 100%
+
+
+ .ways_to_use_container
+   display: flex
+   max-width: 1140px
+   flex-direction: column
+   justify-content: center
+   padding: 32px 15px
+
+   .ways_to_use_container__title
+      margin-bottom: 64px
+      text-align: center
+      @media(max-width: 768px)
+        width: 90%
+        align-self: center
+
+      span
+        @include pre_title
+
+      h4
+        font-size: 2rem
+        margin: 8px 0
+      
+      p
+        color: $infoTextClr
+
+
+   .ways_to_use_container__cards
+     display: flex
+     justify-content: space-between
+     @media(max-width: 768px)
+       flex-direction: column
+       width: 90%
+       align-self: center
+
+     .card
+       display: flex
+       flex-direction: column
+       align-items: center
+       width: 31.5%
+       padding: 64px 16px
+       border: 1px solid $borderClr
+       text-align: center
+       box-sizing: border-box
+       @media(max-width: 768px)
+         width: 100%
+         margin-bottom: 20px
+
+       .card__img
+         @include icon_container
+         margin-bottom: 8px
+         
+
+         img
+          @include image
+
+       .card__title
+        font-size: 24px
+        font-weight: 500
+        margin-bottom: 8px
+
+       .card__desc
+         line-height: 1.7
+         color: $infoTextClr
+         margin-bottom: 25px
+
+       .card__link_btn
+         box-sizing: border-box
+         min-width: 10rem
+         padding: 12px 16px
+         background-color: $AccentClr
+         border-radius: .3125rem
+         cursor: pointer
+         transition: all 0.2s ease-in-out
+         @media(max-width: 480px)
+           width: 100%
+           font-size: 0.85rem
+
+         &:hover
+          transform: translateY(-3px)
+          box-shadow: 0 4px 11px rgba(55, 125, 255, 0.5)
+
+         .card__link
+           text-decoration: none
+           color: $secAccentClr
+
+ .naming_contest_container
+   display: flex
+   flex-direction: column
+   align-items: center
+   max-width: 1140px
+   box-sizing: border-box
+   padding: 128px 15px
+   position: relative
+   @media(max-width: 576px)
+     padding: 50px 15px
+     text-align: center
+
+   .naming_contest_container__title
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 64px
+    @media(max-width: 768px)
+      margin-bottom: 30px
+    @media(max-width: 576px)
+      margin-bottom: 10px
+
+    .title__img
+      @include icon_container
+      margin-bottom: 10px
+
+      img
+       @include image
+
+    h4
+      font-size: 2rem
+      margin-bottom: 8px
+
+   .naming_contest_container__info
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      @media(max-width: 991px)
+        flex-direction: column-reverse
+
+      .info__img
+        display: flex
+        align-items: center
+        max-width: 50%
+        overflow: hidden
+        padding-right: 30px
+        box-sizing: border-box
+        object-fit: cover
+        @media(max-width: 1200px)
+          width: 50%
+        @media(max-width: 991px)
+          width: 80%
+          align-self: center
+        img
+          width: 100%
+
+
+      .info__list
+        width: 50%
+        display: flex
+        @media(max-width: 991px)
+          width: 95%
+        @media(max-width: 480px)
+          width: 100%
+
+        ul
+          list-style: none
+          display: flex
+          flex-direction: column
+          box-sizing: border-box
+          padding: 0 12px
+          @media(max-width: 991px)
+            width: 100%
+
+          li
+            display: flex
+            box-sizing: border-box
+            padding: 16px 0 16px 40px
+            position: relative
+            @media(max-width: 991px)
+              width: 100%
+
+            div
+              display: flex
+              box-sizing: border-box
+              padding: 32px
+              justify-content: space-between
+              align-items: center
+              border: 1px solid $borderClr
+              border-radius: 0.3125rem
+              @media(max-width: 991px)
+                width: 100%
+                justify-content: flex-start
+
+              span
+                margin-right: 16px
+                font-size:  54px
+                color: $AccentClr
+
+              p
+                color: $infoTextClr
+                line-height: 1.7
+                @media(max-width: 480px)
+                  text-align: left
+
+            &::before
+              position: absolute
+              top: 0
+              bottom: 0
+              right: 0
+              left: -.25rem
+              width: 2rem
+              height: .0625rem
+              border-top: 1px solid $borderClr
+              margin: auto auto auto 0
+              content: ''
+            
+            &::after
+              position: absolute
+              top: 0
+              bottom: 0
+              right: 0
+              left: -.3125rem
+              width: .0625rem
+              height: 100%
+              border-right: 1px solid $borderClr
+              margin: auto auto auto 0
+              content: ''
+
+            &:first-child::after
+              height: 50%
+              top: auto
+
+            &:last-child::after 
+              height: 50%
+              bottom: auto
+
+   &::before
+    position: absolute
+    content: ''
+    border-top: 1px solid $borderClr
+    z-index: 100
+    width: 200%
+    top: 0
+
+    &::before
+    position: absolute
+    content: ''
+    border-bottom: 1px solid $borderClr
+    z-index: 100
+    width: 200%
+    bottom: 0
+
+ .get_start_container
+   width: 100%
+   display: flex
+   flex-direction: column
+   align-items: center
+   background-image: linear-gradient(30deg,rgba(45,21,130,0.9) 0%,rgba(25,160,255,0.85) 100%)
+   box-sizing: border-box
+   padding: 32px 0
+
+   .get_start_container__title
+     color: $getStartAccentClr
+     font-size: 2rem
+     margin-bottom: 8px
+     font-weight: 600
+
+   p
+    font-size: 1.25rem
+    font-weight: 300
+    color: $secAccentClr
+    margin-bottom: 16px
+    @media(max-width: 991px)
+      text-align: center
+    @media(max-width: 480px)
+      font-size: 1rem
+   
+   div
+    background-color: $secAccentClr
+    min-width: 10rem
+    padding: 12px 16px
+    box-sizing: border-box
+    border-radius: .3125rem
+    cursor: pointer
+    transition: all 0.2s ease-in-out
+    text-align: center
+    @media(max-width: 480px)
+      width: 90%
+
+    .get_start_container__link
+      color: $mainTextClr
+      text-decoration: none
+      font-weight: 500
+
+    &:hover
+      transform: translateY(-3px)
+      box-shadow: 0 4px 11px rgba(255, 255, 255, 0.35)
